@@ -62,8 +62,8 @@ Cada IV debe estar entre 0 y 15.
 ## Fases de desarrollo
 
 - [x] **Fase 0:** estructura del proyecto, Git, `.gitignore` y `README`
-- [ ] **Fase 1:** base de datos, configuración y conexión PDO
-- [ ] **Fase 2:** registro, login, logout y sesiones
+- [x] **Fase 1:** base de datos, configuración y conexión PDO
+- [x] **Fase 2:** registro, login, logout y sesiones
 - [ ] **Fase 3:** importación del catálogo desde PokéAPI
 - [ ] **Fase 4:** añadir Pokémon
 - [ ] **Fase 5:** dashboard, editar y eliminar
