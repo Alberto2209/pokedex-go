@@ -27,4 +27,11 @@ return [
         'password' => 'TU_PASSWORD_MYSQL',
         'charset'  => 'utf8mb4',
     ],
+
+    'app' => [
+        // Ruta URL en la que Apache publica la carpeta public/ (sin barra final).
+        // Con el Alias de XAMPP configurado en la Fase 2 es '/pokedex-go'.
+        // Si public/ fuera algún día la raíz del sitio, se dejaría vacía: ''.
+        'url_base' => '/pokedex-go',
+    ],
 ];

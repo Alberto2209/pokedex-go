@@ -1,0 +1,334 @@
+/* =====================================================================
+   PokéDex GO - Hoja de estilos
+   Enfoque "mobile first": los estilos base son los del móvil y las
+   media queries (min-width) añaden ajustes para tablet y PC.
+
+     Móvil   : menos de 600px
+     Tablet  : desde 600px
+     PC      : desde 992px
+   ===================================================================== */
+
+/* ---------- Variables de color y medidas ---------- */
+:root {
+    --color-primario: #c62d0a;
+    --color-primario-hover: #a32408;
+    --color-oscuro: #1f2430;
+    --color-fondo: #f3f4f6;
+    --color-tarjeta: #ffffff;
+    --color-texto: #1f2430;
+    --color-texto-suave: #5b6270;
+    --color-borde: #cfd4dc;
+
+    --color-exito: #1b6e2f;
+    --color-exito-fondo: #e6f4ea;
+    --color-error: #a8231c;
+    --color-error-fondo: #fdecea;
+    --color-info: #1a5a8a;
+    --color-info-fondo: #e7f1f9;
+
+    --radio: 10px;
+    --sombra: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;              /* altura real en móviles con barra de navegador */
+    display: flex;
+    flex-direction: column;          /* el pie queda siempre abajo */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--color-primario);
+}
+
+h1 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+/* Contorno visible al navegar con teclado */
+:focus-visible {
+    outline: 3px solid #f5a623;
+    outline-offset: 2px;
+}
+
+/* ---------- Contenedor centrado ---------- */
+.contenedor {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* ---------- Cabecera y menú (versión móvil) ---------- */
+.cabecera-sitio {
+    background: var(--color-oscuro);
+    color: #fff;
+}
+
+.barra {
+    display: flex;
+    flex-wrap: wrap;                 /* si no cabe, pasa a la línea siguiente */
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.marca {
+    flex: 1 1 100%;                  /* en móvil la marca ocupa toda la primera línea */
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1rem;
+    width: 100%;
+}
+
+.navegacion a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;                /* tamaño mínimo cómodo para el dedo */
+    color: #fff;
+    text-decoration: none;
+}
+
+.navegacion a:hover {
+    text-decoration: underline;
+}
+
+.usuario-actual {
+    color: #c9cfda;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.form-logout {
+    margin: 0;
+}
+
+.boton-nav {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.boton-nav:hover {
+    background: #fff;
+    color: var(--color-oscuro);
+}
+
+/* ---------- Contenido principal ---------- */
+.contenido {
+    flex: 1;                         /* empuja el pie hacia abajo */
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.tarjeta {
+    padding: 1.25rem;
+    background: var(--color-tarjeta);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta-formulario {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.texto-suave {
+    color: var(--color-texto-suave);
+}
+
+/* ---------- Formularios ---------- */
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    font-size: 1rem;                 /* 16px: evita el zoom automático en iOS */
+}
+
+.campo input:focus {
+    border-color: var(--color-primario);
+}
+
+.campo input[aria-invalid="true"] {
+    border-color: var(--color-error);
+}
+
+.ayuda {
+    margin: 0.3rem 0 0;
+    font-size: 0.875rem;
+    color: var(--color-texto-suave);
+}
+
+.error-campo {
+    margin: 0.3rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-error);
+}
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.6rem 1.25rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--color-primario);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background: var(--color-primario-hover);
+}
+
+.boton-bloque {
+    width: 100%;
+}
+
+.enlace-alterno {
+    margin: 1.25rem 0 0;
+    text-align: center;
+}
+
+/* ---------- Avisos ---------- */
+.alerta {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.alerta-exito {
+    background: var(--color-exito-fondo);
+    border-color: var(--color-exito);
+    color: var(--color-exito);
+}
+
+.alerta-error {
+    background: var(--color-error-fondo);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.alerta-info {
+    background: var(--color-info-fondo);
+    border-color: var(--color-info);
+    color: var(--color-info);
+}
+
+/* ---------- Pie ---------- */
+.pie-sitio {
+    padding: 1rem 0;
+    background: var(--color-oscuro);
+    color: #c9cfda;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.pie-sitio p {
+    margin: 0.25rem 0;
+}
+
+/* =====================================================================
+   TABLET: desde 600px
+   ===================================================================== */
+@media (min-width: 600px) {
+    .contenedor {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    /* Marca y menú pasan a compartir una sola línea */
+    .marca {
+        flex: 0 0 auto;
+    }
+
+    .navegacion {
+        width: auto;
+        justify-content: flex-end;
+    }
+
+    .contenido {
+        padding-top: 2.5rem;
+    }
+
+    .tarjeta {
+        padding: 2rem;
+    }
+}
+
+/* =====================================================================
+   PC: desde 992px
+   ===================================================================== */
+@media (min-width: 992px) {
+    .contenedor {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .contenido {
+        padding-top: 3rem;
+    }
+}
