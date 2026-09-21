@@ -1,0 +1,19 @@
+# ===========================================
+# PokéDex GO - Archivos que Git debe ignorar
+# ===========================================
+
+# Credenciales reales de la base de datos.
+# Solo se sube config.example.php (plantilla sin datos reales).
+config/config.php
+
+# Archivos de sistema de Windows
+Thumbs.db
+desktop.ini
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Logs y archivos temporales
+*.log
+*.tmp
