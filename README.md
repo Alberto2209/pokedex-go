@@ -57,14 +57,21 @@ Cada IV debe estar entre 0 y 15.
 
 ## Instalación
 
-> Pendiente. Se documentará cuando lleguemos a ejecutar la aplicación con Apache de XAMPP.
+1. **Base de datos:** importa `database/schema.sql` en phpMyAdmin (crea la base de datos `pokedex_go` y sus tablas).
+2. **Configuración:** copia `config/config.example.php` como `config/config.php` y ajusta tus credenciales de MySQL.
+3. **Catálogo de Pokémon:** importa las especies desde PokéAPI ejecutando, desde la línea de comandos:
+   ```
+   C:\xampp\php\php.exe scripts\importar_catalogo.php
+   ```
+   Es un paso manual, se hace una sola vez (o cuando quieras añadir más especies). No es necesario repetirlo cada vez que arrancas la aplicación. Más detalle en los comentarios del propio script.
+4. **Apache:** añade un `Alias` a `public/` en `httpd-vhosts.conf` de XAMPP apuntando a tu carpeta del proyecto (ver Fase 2) y reinicia Apache.
 
 ## Fases de desarrollo
 
 - [x] **Fase 0:** estructura del proyecto, Git, `.gitignore` y `README`
-- [ ] **Fase 1:** base de datos, configuración y conexión PDO
-- [ ] **Fase 2:** registro, login, logout y sesiones
-- [ ] **Fase 3:** importación del catálogo desde PokéAPI
+- [x] **Fase 1:** base de datos, configuración y conexión PDO
+- [x] **Fase 2:** registro, login, logout y sesiones
+- [x] **Fase 3:** catálogo de Pokémon e integración con PokéAPI
 - [ ] **Fase 4:** añadir Pokémon
 - [ ] **Fase 5:** dashboard, editar y eliminar
 - [ ] **Fase 6:** búsqueda, filtros, orden y paginación
